@@ -4,6 +4,11 @@ from gensim import corpora, models, similarities
 # import logging
 # logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
+# 1. get question from user input
+# 2. search google for question
+# 3. scrape document as corpus
+# 4. train nlp model using scraped corpus
+
 text_corpus = [
                "In software development, Python can aid in tasks like build control, bug tracking, and testing. With Python, software developers can automate testing for new products or features. Some Python tools used for software testing include Green and Requestium.",
                "Python has become a staple in data science, allowing data analysts and other professionals to use the language to conduct complex statistical calculations, create data visualizations, build machine learning algorithms, manipulate and analyze data, and complete other data-related tasks.",
