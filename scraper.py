@@ -20,9 +20,10 @@ def wiki_scraper(wikiUrl):
     full_text.close()
 
     # read from back of document and cut it at "see also"
+    # TODO remove "[edit]" ??
     i = len(lines)
     for line in reversed(lines): 
-        if line.lower().strip() == "see also":
+        if "see also" in line.lower().strip():
             del lines[i-1]
             break
         
@@ -36,4 +37,6 @@ def wiki_scraper(wikiUrl):
             new_file.write(line)
     new_file.close()
 
-    return
+    return 'OK'
+
+# wiki_scraper("https://en.wikipedia.org/wiki/Python_(programming_language)")
