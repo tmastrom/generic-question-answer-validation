@@ -8,7 +8,6 @@ question = input("Your question: ")
 # search google for a wiki page on the question topic 
 # TODO: error handling 
 wikiUrl = search_google(question)
-print(wikiUrl)
 
 # Scrape text from wiki page and save to txt file
 r = wiki_scraper(wikiUrl)
