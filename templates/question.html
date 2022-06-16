@@ -5,11 +5,11 @@
   <body>
     <h1>Hello</h1>
     <p>Ask an open ended question like "what is..."" or "who is...?"</p>
-    <form class="navbar-form navbar-left" role="search">
+    <form action = "http://localhost:5000/answer" method = "POST">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" name="question" placeholder="Question">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+    </form>
   </body>
 </html>
