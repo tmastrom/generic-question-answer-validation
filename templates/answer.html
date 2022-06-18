@@ -3,13 +3,12 @@
     <title>Answer Input Form</title>
   </head>
   <body>
-    <h1>Your Question: {{ question }}!</h1>
+    <h1>Your Question: {{ session['question'] }}</h1>
     <form action = "http://localhost:5000/result" method = "POST">
-        <div class="form-group">
-          <input type="text" name="answer" placeholder="answer">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-  </body>
+      <div class="form-group">
+        <input type="text" name="answer" placeholder="answer">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
   </body>
 </html>
