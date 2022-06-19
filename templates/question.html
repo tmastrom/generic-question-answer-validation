@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Question input form</title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <p>Ask an open ended question like "what is..."" or "who is...?"</p>
+    <form action = "http://localhost:5000/result" method = "POST">
+        <div class="form-group">
+          <input type="text" name="question" placeholder="Question">
+        </div>
+        <div class="form-group">
+          <input type="text" name="answer" placeholder="Answer">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </body>
+</html>

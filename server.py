@@ -8,9 +8,10 @@ app = Flask(__name__)
 # Details on the Secret Key: https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY
 # NOTE: The secret key is used to cryptographically-sign the cookies used for storing
 #       the session data.
+# https://testdriven.io/blog/flask-sessions/
 app.secret_key = 'BAD_SECRET_KEY'
 
-@app.route("/")
+@app.route("/", methods = ['GET', 'POST'])
 def question():
     return render_template('question.html')
 
@@ -33,13 +34,7 @@ def answer():
         # format the corpus for nlp training
         dictionary, lsi, index = semantic_transform(corpus)
 
-        # check the answer agains the semantic vectorization and determine if correct
+        # check the answer against the semantic vectorization and determine if correct
         percent = checkAnswer(dictionary, lsi, index, answer)
 
         return render_template('result.html', percent = percent)
-
-
-
-        
-        
-        
