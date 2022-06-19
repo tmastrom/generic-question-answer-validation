@@ -1,8 +1,10 @@
+import os
+
 from flask import Flask, render_template, request, session
 
-from google import search_google
-from scraper import wiki_scraper
-from nlp import semantic_transform, checkAnswer
+from utils.google import search_google
+from utils.scraper import wiki_scraper
+from utils.nlp import semantic_transform, checkAnswer
 
 app = Flask(__name__)
 # Details on the Secret Key: https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY
@@ -38,3 +40,6 @@ def answer():
         percent = checkAnswer(dictionary, lsi, index, answer)
 
         return render_template('result.html', percent = percent)
+
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
