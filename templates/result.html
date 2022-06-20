@@ -1,19 +1,29 @@
 <html>
   <head>
     <title>Result template</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   </head>
   <body>
-    <h1>Your answer was {{ percent }} % correct</h1>
-    <h3>Question: {{ session['question'] }}</h1>
-    <h3>Answer: {{ session['answer'] }}</h1>
-    <form action = "https://nlp-fdlwjvspeq-nn.a.run.app/" method = "POST">
-      <button type="submit" class="btn btn-default">Home</button>
-    </form>
-    <h3>Try a new answer</h3>
-    <form action = "https://nlp-fdlwjvspeq-nn.a.run.app/result" method = "POST">
-      <input type="hidden" name="question" value="{{ session['question'] }}"/>
-      <input type="text" name="answer" placeholder="Answer"/>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+    <header>
+      <div class="container">
+        <h1 class="title">NLP Bot</h1>
+      </div>
+    </header>
+    <div class="container home">
+      <h2>Your answer was {{ percent }} % correct</h1>
+        <h3>Question: {{ session['question'] }}</h1>
+        <h3>Answer: {{ session['answer'] }}</h1>
+        <form action = "https://nlp-fdlwjvspeq-nn.a.run.app/" method = "POST">
+          <button type="submit" class="btn">Home</button>
+        </form>
+        <h2>Try a new answer</h3>
+        <form action = "https://nlp-fdlwjvspeq-nn.a.run.app/result" method = "POST">
+          <input type="hidden" name="question" value="{{ session['question'] }}"/>
+          <div class="form-group">
+            <input type="text" name="answer" placeholder="Answer"/>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
   </body>
 </html>
