@@ -9,21 +9,31 @@
         <h1 class="title">NLP Bot</h1>
       </div>
     </header>
-    <div class="container home">
-      <h2>Your answer was {{ percent }} % correct</h1>
-        <h3>Question: {{ session['question'] }}</h1>
-        <h3>Answer: {{ session['answer'] }}</h1>
+    <div class="container">
+      <h2 class="flex">Your answer was {{ percent }} % correct</h2>
+      <h3 class="flex">Question: {{ session['question'] }}</h3>
+      <h3 class="flex">Answer: {{ session['answer'] }}</h3>
+      <div class="flex">
         <form action = "https://nlp-fdlwjvspeq-nn.a.run.app/" method = "POST">
-          <button type="submit" class="btn">Home</button>
+          <div>
+            <button type="submit" class="btn">Home</button>
+          </div>
         </form>
-        <h2>Try a new answer</h3>
+      </div> 
+      <h2 class="flex">Try a new answer</h2>
+      <div class="flex">
         <form action = "https://nlp-fdlwjvspeq-nn.a.run.app/result" method = "POST">
-          <input type="hidden" name="question" value="{{ session['question'] }}"/>
-          <div class="form-group">
+          <div>
+            <input type="hidden" name="question" value="{{ session['question'] }}"/>
+          </div> 
+          <div>
             <input type="text" name="answer" placeholder="Answer"/>
           </div>
-          <button type="submit" class="btn">Submit</button>
+          <div>
+            <button type="submit" class="btn">Submit</button>
+          </div>
         </form>
+      </div>
     </div>
   </body>
 </html>

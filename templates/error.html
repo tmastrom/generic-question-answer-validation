@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Error template</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="title">NLP Bot</h1>
+      </div>
+    </header>
+    <div class="container">
+      <h2 class="flex">We ran into a problem while processing your question</h2>
+      <h3 class="flex">Question: {{ session['question'] }}</h3>
+      <h3 class="flex">Try rephrasing your question or try a new question</h3>
+      <div class="flex">
+        <form action = "https://nlp-fdlwjvspeq-nn.a.run.app/" method = "POST">
+          <div>
+            <button type="submit" class="btn">Home</button>
+          </div>
+        </form>
+      </div> 
+    </div>
+  </body>
+</html>

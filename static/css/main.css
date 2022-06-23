@@ -8,14 +8,10 @@ body {
   * Formatting the header area
   */
 header {
-  height: 35px;
   width: 100%;
   opacity: .9;
-  margin-bottom: 10px;
 }
 header h1.title {
-  margin: 0;
-  margin-top: 40px;
   font-size: 1.7em;
   text-transform: uppercase;
   text-align: center;
@@ -26,29 +22,23 @@ header h1.title {
 .container {
   margin: 0 auto;
 }
-div.home {
-  padding: 10px 0 30px 0;
-  -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-          border-radius: 6px;
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
-.form-group {
-  padding: 10px 0 10px 0;
-  -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-          border-radius: 6px;
+
+input {
+  margin: 10px;
 }
 
 h2 {
-  margin: 0;
-  margin-top: 20px;
   font-size: 1.2em;
 }
 
 h3 {
-  margin-top: 10px;
-  margin-bottom: 20px;
   font-size: 0.9em;
 }
 

@@ -7,10 +7,6 @@ from utils.scraper import wiki_scraper
 from utils.nlp import semantic_transform, checkAnswer
 
 app = Flask(__name__)
-# Details on the Secret Key: https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY
-# NOTE: The secret key is used to cryptographically-sign the cookies used for storing
-#       the session data.
-# https://testdriven.io/blog/flask-sessions/
 app.secret_key = 'BAD_SECRET_KEY'
 
 @app.route("/", methods = ['GET', 'POST'])
@@ -29,15 +25,21 @@ def answer():
         # search google for a wiki page on the question topic 
         # TODO: error handling 
         wikiUrl = search_google(question)
+        if not wikiUrl:
+            return render_template('error.html')
         
         # Scrape text from wiki page and return filtered text
         corpus = wiki_scraper(wikiUrl)
-
+        if len(corpus) == 0:
+            return render_template('error.html')
+        
         # format the corpus for nlp training
         dictionary, lsi, index = semantic_transform(corpus)
 
         # check the answer against the semantic vectorization and determine if correct
         percent = checkAnswer(dictionary, lsi, index, answer)
+        if not percent: 
+            return render_template('error.html')
 
         return render_template('result.html', percent = percent)
 
