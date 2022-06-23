@@ -14,7 +14,7 @@
       <h3 class="flex">Question: {{ session['question'] }}</h3>
       <h3 class="flex">Answer: {{ session['answer'] }}</h3>
       <div class="flex">
-        <form action = "https://nlp-fdlwjvspeq-nn.a.run.app/" method = "POST">
+        <form action = "{{ url_for('question') }}" method = "POST">
           <div>
             <button type="submit" class="btn">Home</button>
           </div>
@@ -22,7 +22,7 @@
       </div> 
       <h2 class="flex">Try a new answer</h2>
       <div class="flex">
-        <form action = "https://nlp-fdlwjvspeq-nn.a.run.app/result" method = "POST">
+        <form action = "{{ url_for('answer') }}" method = "POST">
           <div>
             <input type="hidden" name="question" value="{{ session['question'] }}"/>
           </div> 

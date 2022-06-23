@@ -26,11 +26,13 @@ def answer():
         # TODO: error handling 
         wikiUrl = search_google(question)
         if not wikiUrl:
+            print('error with wiki url')
             return render_template('error.html')
         
         # Scrape text from wiki page and return filtered text
         corpus = wiki_scraper(wikiUrl)
         if len(corpus) == 0:
+            print('error with scraping text')
             return render_template('error.html')
         
         # format the corpus for nlp training
@@ -38,8 +40,6 @@ def answer():
 
         # check the answer against the semantic vectorization and determine if correct
         percent = checkAnswer(dictionary, lsi, index, answer)
-        if not percent: 
-            return render_template('error.html')
 
         return render_template('result.html', percent = percent)
 

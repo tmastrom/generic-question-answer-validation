@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Error template</title>
+    <title>Error</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   </head>
   <body>
@@ -14,7 +14,7 @@
       <h3 class="flex">Question: {{ session['question'] }}</h3>
       <h3 class="flex">Try rephrasing your question or try a new question</h3>
       <div class="flex">
-        <form action = "https://nlp-fdlwjvspeq-nn.a.run.app/" method = "POST">
+        <form action = "{{ url_for('question') }}" method = "POST">
           <div>
             <button type="submit" class="btn">Home</button>
           </div>

@@ -12,7 +12,7 @@
     <div class="container">
       <h3 class="flex">Ask an open ended question like "what is..."" or "who is...?"</h3>
       <div class="flex">
-        <form action = "https://nlp-fdlwjvspeq-nn.a.run.app/result" method = "POST">
+        <form action = "{{ url_for('answer') }}" method = "POST">
           <div >
             <input type="text" name="question" placeholder="Question">
           </div>
